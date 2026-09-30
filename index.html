@@ -343,27 +343,22 @@
       }
     });
 
-    // Desactivar el menú contextual (clic derecho)
+ // Desactivar el menú contextual en la fase de captura
 document.addEventListener('contextmenu', (event) => {
   event.preventDefault();
-});
+  event.stopPropagation();
+}, true);
 
-// Desactivar atajos de teclado para inspeccionar elemento
+// Bloquear atajos de teclado en la fase de captura
 document.addEventListener('keydown', (event) => {
-  // Prevenir F12
-  if (event.key === 'F12') {
+  if (
+    event.key === 'F12' ||
+    (event.ctrlKey && event.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(event.key)) ||
+    (event.ctrlKey && (event.key === 'u' || event.key === 'U'))
+  ) {
     event.preventDefault();
+    event.stopPropagation();
   }
-
-  // Prevenir Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
-  if (event.ctrlKey && event.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(event.key)) {
-    event.preventDefault();
-  }
-
-  // Prevenir Ctrl+U (Ver código fuente)
-  if (event.ctrlKey && (event.key === 'u' || event.key === 'U')) {
-    event.preventDefault();
-  }
-});
+}, true);
   </script>
 </html>
