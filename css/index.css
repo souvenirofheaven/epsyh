@@ -461,36 +461,32 @@ body {
   color: #db7093;
 }
 
+.wave-text {
+  /* background-image: repeating-linear-gradient(-45deg, rgb(97, 0, 105) 3%, rgb(255, 210, 179) 14.75%, rgb(255, 150, 240) 26.5%, rgb(239, 206, 191) 38.25%, rgb(97, 0, 105) 50%); animation-duration: 4s; position: relative; */
 
-.nick {
-    font-style: italic;
+  /* Gradiente que proporcionaste */
+  background-image: repeating-linear-gradient(-45deg, #f9baba 3%, #f98e94 14.75%, #bdddec 26.5%, #efe593 38.25%, #f9baba 50%);
+  background-size: 220% 100%;
 
-    background: linear-gradient(
-        90deg,
-        #F9BABA 0%,
-        #F98E94 25%,
-        #90D5F7 50%,
-        #EFE593 75%,
-        #F9BABA 100%
-    );
+  /* Truco para que el fondo sea el texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 
-    background-size: 400% 100%;
+  /* Animación wave */
+  animation: waveMove 10s linear infinite;
 
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    filter: drop-shadow(1px 1px 0 #A16F6A);
-
-    animation: nickColors 10s linear infinite;
+  font-weight: bold;
 }
 
-@keyframes nickColors {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    100% {
-        background-position: 400% 50%;
-    }
+@keyframes waveMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
