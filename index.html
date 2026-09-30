@@ -342,5 +342,28 @@
         sound.play();
       }
     });
+
+    // Desactivar el menú contextual (clic derecho)
+document.addEventListener('contextmenu', (event) => {
+  event.preventDefault();
+});
+
+// Desactivar atajos de teclado para inspeccionar elemento
+document.addEventListener('keydown', (event) => {
+  // Prevenir F12
+  if (event.key === 'F12') {
+    event.preventDefault();
+  }
+
+  // Prevenir Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+  if (event.ctrlKey && event.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(event.key)) {
+    event.preventDefault();
+  }
+
+  // Prevenir Ctrl+U (Ver código fuente)
+  if (event.ctrlKey && (event.key === 'u' || event.key === 'U')) {
+    event.preventDefault();
+  }
+});
   </script>
 </html>
