@@ -460,3 +460,37 @@ body {
   border: 1px solid #db7093;
   color: #db7093;
 }
+
+
+.nick {
+    font-style: italic;
+
+    background: linear-gradient(
+        90deg,
+        #F9BABA 0%,
+        #F98E94 25%,
+        #90D5F7 50%,
+        #EFE593 75%,
+        #F9BABA 100%
+    );
+
+    background-size: 400% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(1px 1px 0 #A16F6A);
+
+    animation: nickColors 10s linear infinite;
+}
+
+@keyframes nickColors {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 400% 50%;
+    }
+}
