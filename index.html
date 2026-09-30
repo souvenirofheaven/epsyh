@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -40,19 +40,14 @@
               />
             </div>
             <div class="card-body pt-5">
-            <!-- Contenedor relativo para anclar la burbuja a la imagen -->
-<div class="profile-wrapper">
-  <img
-    src="https://i.pinimg.com/736x/eb/ff/63/ebff63acb972f1bfa5b976725b464c17.jpg"
-    alt="profile"
-    class="profile"
-  />
-  
-              <!-- Burbuja de pensamiento anclada a la foto -->
-              <div class="thought-bubble">
-              <span>555</span>
-              </div>
-              </div>
+              <!-- Contenedor relativo para anclar la burbuja a la imagen -->
+
+              <img
+                src="https://i.pinimg.com/736x/eb/ff/63/ebff63acb972f1bfa5b976725b464c17.jpg"
+                alt="profile"
+                class="profile"
+              />
+
               <h2
                 class="card-title text-center"
                 style="color: palevioletred"
@@ -238,8 +233,6 @@
                               class="friend-profile"
                             />
                           </div>
-                         
-                     
                         </div>
                       </div>
                     </div>
@@ -314,22 +307,26 @@
       }
     });
 
- // Desactivar el menú contextual en la fase de captura
-document.addEventListener('contextmenu', (event) => {
-  event.preventDefault();
-  event.stopPropagation();
-}, true);
+    // Desactivar el menú contextual en la fase de captura
+    document.addEventListener(
+      "contextmenu",
+      (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+      },
+      true,
+    );
 
-// Bloquear atajos de teclado en la fase de captura
-document.addEventListener('keydown', (event) => {
-  if (
-    event.key === 'F12' ||
-    (event.ctrlKey && event.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(event.key)) ||
-    (event.ctrlKey && (event.key === 'u' || event.key === 'U'))
-  ) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-}, true);
+    // Bloquear atajos de teclado en la fase de captura
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "F12" || (event.ctrlKey && event.shiftKey && ["I", "J", "C", "i", "j", "c"].includes(event.key)) || (event.ctrlKey && (event.key === "u" || event.key === "U"))) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      },
+      true,
+    );
   </script>
 </html>
